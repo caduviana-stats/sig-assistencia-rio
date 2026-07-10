@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SIG Assistência Social</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark">SIG</div>
+    <div>
+      <h1>Assistência Social do Município do Rio</h1>
+      <p>CAS, CRAS, CREAS e Agências do INSS</p>
+    </div>
+  </div>
+
+  <div class="search">
+    <input id="searchInput" placeholder="Pesquisar equipamento, bairro, CAS ou INSS..." autocomplete="off">
+    <div id="results" class="result-box"></div>
+  </div>
+<div class="stats">
+
+    <span class="pill"><b id="totalEquipamentos">0</b> Equipamentos</span>
+
+    <span class="pill"><b id="totalCAS">0</b> CAS</span>
+
+    <span class="pill"><b id="totalCRAS">0</b> CRAS</span>
+
+    <span class="pill"><b id="totalCREAS">0</b> CREAS</span>
+
+    <span class="pill"><b id="totalURS">0</b> URS</span>
+
+    <span class="pill"><b id="totalCT">0</b> Conselho Tutelar</span>
+
+    <span class="pill"><b id="totalCADRIO">0</b> CADRio</span>
+
+    <span class="pill"><b id="totalAlbergue">0</b> Albergues</span>
+
+    <span class="pill"><b id="totalCentroPOP">0</b> Centro POP</span>
+
+    <span class="pill"><b id="totalCentrais">0</b> Centrais</span>
+
+    <span class="pill"><b id="totalINSS">0</b> INSS</span>
+
+</div>
+</header>
+
+  <main id="map"></main>
+
+  <aside class="sidebar">
+   
+
+    <section class="section">
+      <h2>Camadas</h2>
+
+      <label class="layer-item">
+        <span class="layer-color layer-cas"></span>
+        CAS
+        <input type="checkbox" checked data-type="CAS">
+      </label>
+
+      <label class="layer-item">
+        <span class="layer-color layer-cras"></span>
+        CRAS
+        <input type="checkbox" checked data-type="CRAS">
+      </label>
+
+      <label class="layer-item">
+        <span class="layer-color layer-creas"></span>
+        CREAS
+        <input type="checkbox" checked data-type="CREAS">
+      </label>
+
+      <label class="layer-item">
+        <span class="layer-color layer-inss"></span>
+        INSS
+        <input type="checkbox" checked data-type="INSS">
+      </label>
+    </section>
+<label class="layer-item">
+  <span class="layer-color" style="background:#2563EB"></span>
+  URS
+  <input type="checkbox" checked data-type="URS">
+</label>
+
+<label class="layer-item">
+  <span class="layer-color" style="background:#000000"></span>
+  Conselho Tutelar
+  <input type="checkbox" checked data-type="CONSELHO TUTELAR">
+</label>
+
+<label class="layer-item">
+  <span class="layer-color" style="background:#808080"></span>
+  CADRio
+  <input type="checkbox" checked data-type="CADRIO">
+</label>
+
+<label class="layer-item">
+  <span class="layer-color" style="background:#EC4899"></span>
+  Albergue
+  <input type="checkbox" checked data-type="ALBERGUE">
+</label>
+
+<label class="layer-item">
+  <span class="layer-color" style="background:#16A34A"></span>
+  Centro POP
+  <input type="checkbox" checked data-type="CENTRO POP">
+</label>
+
+<label class="layer-item">
+  <span class="layer-color" style="background:#8B4513"></span>
+  Centrais
+  <input type="checkbox" checked data-type="CENTRAIS">
+</label>
+
+    <section class="section">
+      <h2>Filtrar por CAS</h2>
+      <div class="cas-grid" id="casGrid"></div>
+    </section>
+
+    <section class="section">
+      <h2>Legenda</h2>
+      <div class="legend-row">
+        <span><i class="dot cas"></i> CAS</span>
+        <span><i class="dot cras"></i> CRAS</span>
+        <span><i class="dot creas"></i> CREAS</span>
+        <span><i class="dot inss"></i> INSS</span>
+      </div>
+      <p class="note">
+        Este mapa interativo reúne a localização das CAS, CRAS, CREAS e Agências do INSS no Município do Rio de Janeiro.
+      </p>
+    </section>
+  </aside>
+
+  <div class="footer-badge">Mapa base limpo · CartoDB Positron</div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script src="assets/data/config.js"></script>
+<script src="assets/data/equipamentos.js"></script>
+
+<script src="assets/data/cas.js"></script>
+<script src="assets/data/inss.js"></script>
+
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/popup.js"></script>
+<script src="assets/js/map.js"></script>
+<script src="assets/js/layers.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/app.js"></script>
+
+<aside id="drawer" class="drawer">
+  <button class="close" id="closeDrawer">×</button>
+  <div class="drawer-head">
+    <small id="drawerType">TIPO</small>
+    <h3 id="drawerTitle"></h3>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+
+</body>
+</html>
